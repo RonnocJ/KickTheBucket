@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WwiseSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CopySoundBanksAsPreBuildStep>true</CopySoundBanksAsPreBuildStep>
+  <GenerateSoundBanksAsPreBuildStep>false</GenerateSoundBanksAsPreBuildStep>
+  <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
+  <GeneratedSoundbanksPath>WwiseData/Bank</GeneratedSoundbanksPath>
+  <CreatedPicker>true</CreatedPicker>
+  <CreateWwiseGlobal>true</CreateWwiseGlobal>
+  <CreateWwiseListener>true</CreateWwiseListener>
+  <ObjectReferenceAutoCleanup>true</ObjectReferenceAutoCleanup>
+  <LoadSoundEngineInEditMode>true</LoadSoundEngineInEditMode>
+  <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
+  <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
+  <WwiseInstallationPathMac>/Applications/Audiokinetic/Wwise2024.1.7.8863/Wwise.app</WwiseInstallationPathMac>
+  <WwiseInstallationPathWindows />
+  <WwiseProjectPath>../Kick the Bucket_WwiseProject/Kick the Bucket_WwiseProject.wproj</WwiseProjectPath>
+  <UseWaapi>true</UseWaapi>
+  <WaapiPort>8080</WaapiPort>
+  <WaapiIP>127.0.0.1</WaapiIP>
+  <UseGitRepository>false</UseGitRepository>
+  <PackageSource>/Users/connorjohnson/Desktop/GitHub/KickTheBucket/Kick the Bucket/Packages/WwiseUnityAddressables-24.1.7/package.json</PackageSource>
+  <AddressableBankFolder>WwiseData/Bank</AddressableBankFolder>
+  <UseCustomBuildScript>false</UseCustomBuildScript>
+  <AddressableAssetBuilderPath>Assets/AddressableAssetsData/DataBuilders/BuildScriptWwisePacked.asset</AddressableAssetBuilderPath>
+  <AutomaticallyUpdateExternalSourcesPath>false</AutomaticallyUpdateExternalSourcesPath>
+  <ExternalSourcesPath>WwiseData/Bank</ExternalSourcesPath>
+  <XMLTranslatorTimeout>0</XMLTranslatorTimeout>
+  <WaapiTranslatorTimeout>0</WaapiTranslatorTimeout>
+</WwiseSettings>
