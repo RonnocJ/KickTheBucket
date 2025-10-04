@@ -16,8 +16,8 @@ TagManager:
   - Head
   - Arms
   - Legs
-  - 
-  - 
+  - Fan
+  - Chair
   - 
   - 
   - 
@@ -41,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Walls
+    uniqueID: 3546934551
     locked: 0
   m_RenderingLayers:
   - Default
