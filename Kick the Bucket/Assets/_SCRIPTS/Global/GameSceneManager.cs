@@ -1,10 +1,14 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : Singleton<GameSceneManager>
 {
+    [SerializeField] private GameObject levelSelect;
+    [SerializeField] private Animator levelSelectAnim;
+    [SerializeField] private TMP_InputField levelText;
     private int levelIndex;
     protected override void Awake()
     {
@@ -22,11 +26,6 @@ public class GameSceneManager : Singleton<GameSceneManager>
     {
         PInputManager.root.ClearActions();
 
-        PInputManager.root.actions[PlayerActionType.Reload].bAction += () =>
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        };
-
         StartCoroutine(ApplyLevelNextFrame());
     }
 
@@ -34,29 +33,43 @@ public class GameSceneManager : Singleton<GameSceneManager>
     {
         yield return null;
 
+        PInputManager.root.actions[PlayerActionType.Reload].bAction += () =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        };
+
+        PInputManager.root.actions[PlayerActionType.Menu].bAction += ToggleMenu;
+        PInputManager.root.actions[PlayerActionType.Close].bAction += SetLevel;
+
         LevelManager.root.LoadedLevelIndex = levelIndex;
         LevelManager.root.LoadCurrentLevel();
     }
-
-    void Start()
+    private void ToggleMenu()
     {
-        Keyboard.current.onTextInput += OnTextInput;
-    }
-
-    private void OnTextInput(char c)
-    {
-        if (!Application.isPlaying) return;
-
-        string ch = c.ToString();
-
-        if (int.TryParse(ch, out int i))
+        if (!levelSelect.activeInHierarchy)
         {
-            levelIndex = i;
+            levelSelect.SetActive(true);
+            levelText.ActivateInputField();
+        }
+        else
+        {
+            levelSelect.SetActive(false);
+        }
+    }
+    private void SetLevel()
+    {
+        if (!levelSelect.activeInHierarchy) return;
 
-            if (i <= LevelManager.root.Levels.Count - 1)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
+        if (int.TryParse(levelText.text, out int j) && j >= 0 && j < LevelManager.root.Levels.Count)
+        {
+            levelIndex = j;
+            levelSelect.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            levelSelectAnim.SetTrigger("invalid");
+            levelText.ActivateInputField();
         }
     }
 }

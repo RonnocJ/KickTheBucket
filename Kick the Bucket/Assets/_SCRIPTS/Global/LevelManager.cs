@@ -37,7 +37,7 @@ public class LevelManager : Singleton<LevelManager>
     public int LoadedLevelIndex = 0;
     public Level LoadedLevel;
     public List<Level> Levels = new List<Level>();
-
+    
     public void LoadLevelFrom(int index)
     {
         if (index < 0 || index >= Levels.Count) return;
